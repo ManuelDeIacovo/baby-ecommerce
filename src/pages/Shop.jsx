@@ -3,16 +3,12 @@ import { products } from "../data/products";
 import { useCart } from "../hooks/useCart";
 import ImageZoom from "../components/ImageZoom";
 
-const Shop = () => {
+const Shop = ({ category = "All" }) => {
   const { addToCart, cart } = useCart();
-  const [category, setCategory] = useState("All");
   const [selectedColors, setSelectedColors] = useState({});
   const [selectedAmigurumi, setSelectedAmigurumi] = useState({});
   const [customNames, setCustomNames] = useState({});
   const [openSections, setOpenSections] = useState({});
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const categories = ["All", ...new Set(products.map((p) => p.category))];
 
   const filteredProducts =
     category === "All"
@@ -71,57 +67,7 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      {/* Mobile menu toggle */}
-      <button 
-        className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <span className="menu-icon">☰</span>
-        <span className="menu-text">Categorie</span>
-      </button>
-
-      {/* Sidebar */}
-      <aside className={`sidebar ${isMenuOpen ? 'open' : ''}`}>
-        <div className="sidebar-header">
-          <h2>Categorie</h2>
-          <button className="close-menu" onClick={() => setIsMenuOpen(false)}>✕</button>
-        </div>
-        <div className="category-list">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`category-btn ${category === cat ? "active" : ""}`}
-              onClick={() => {
-                setCategory(cat);
-                setIsMenuOpen(false);
-              }}
-            >
-              <span className="cat-icon">
-                {cat === "All" ? "🏷️" : cat === "Abbigliamento" ? "👶" : cat === "Camera" ? "🛏️" : cat === "Amigurumi" ? "🧸" : "🧶"}
-              </span>
-              <span className="cat-name">{cat === "All" ? "Tutti i prodotti" : cat}</span>
-            </button>
-          ))}
-        </div>
-      </aside>
-
-      {/* Overlay */}
-      {isMenuOpen && <div className="sidebar-overlay" onClick={() => setIsMenuOpen(false)} />}
-
-      <div className="shop-content">
-        <h1>Negozio</h1>
-        
-        <div className="filters">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`filter-btn ${category === cat ? "active" : ""}`}
-              onClick={() => setCategory(cat)}
-            >
-              {cat === "All" ? "Tutti" : cat}
-            </button>
-          ))}
-        </div>
+      <h1>Negozio</h1>
 
         <div className="product-grid">
         {filteredProducts.map((product) => (

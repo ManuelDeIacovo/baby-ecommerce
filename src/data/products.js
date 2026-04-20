@@ -26,14 +26,6 @@ export const products = [
     ]
   },
   {
-    id: 3,
-    name: "Coniglio",
-    price: 19.99,
-    category: "Amigurumi",
-    image: "/src/assets/images/coniglio.jpg",
-    description: "Coniglio in amigurumi fatto a mano, perfetto per coccole e decorazione"
-  },
-  {
     id: 4,
     name: "Tricotin Personalizzato",
     price: 49.99,
@@ -59,6 +51,14 @@ export const products = [
       { name: "Azzurro", value: "#87CEEB" },
       { name: "Bianco", value: "#FFFFFF" }
     ]
+  },
+  {
+    id: 3,
+    name: "Coniglio",
+    price: 19.99,
+    category: "Amigurumi",
+    image: "/src/assets/images/coniglio.jpg",
+    description: "Coniglio in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
     id: 6,
