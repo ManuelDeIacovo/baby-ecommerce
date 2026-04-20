@@ -9,6 +9,7 @@ const Shop = ({ category = "All" }) => {
   const [selectedAmigurumi, setSelectedAmigurumi] = useState({});
   const [customNames, setCustomNames] = useState({});
   const [openSections, setOpenSections] = useState({});
+  const [errors, setErrors] = useState({});
 
   const filteredProducts =
     category === "All"
@@ -46,6 +47,32 @@ const Shop = ({ category = "All" }) => {
   };
 
   const handleAddToCart = (product) => {
+    // Clear previous errors for this product
+    setErrors((prev) => ({ ...prev, [product.id]: null }));
+    
+    const newErrors = [];
+    
+    // Validate color selection
+    if (product.colors && !selectedColors[product.id]) {
+      newErrors.push("Seleziona un colore");
+    }
+    
+    // Validate amigurumi selection for customizable products
+    if (product.customizable && !selectedAmigurumi[product.id]) {
+      newErrors.push("Seleziona un amigurumi");
+    }
+    
+    // Validate custom name for products 1, 2, 5 and customizable products
+    if ((product.id === 1 || product.id === 2 || product.id === 5 || product.customizable) && 
+        !customNames[product.id]?.trim()) {
+      newErrors.push("Inserisci un nome");
+    }
+    
+    if (newErrors.length > 0) {
+      setErrors((prev) => ({ ...prev, [product.id]: newErrors }));
+      return;
+    }
+    
     const customization = {};
     
     if (product.colors) {
@@ -207,6 +234,14 @@ const Shop = ({ category = "All" }) => {
                       </div>
                     )}
                   </div>
+                </div>
+              )}
+              
+              {errors[product.id] && (
+                <div className="product-error">
+                  {errors[product.id].map((err, idx) => (
+                    <p key={idx}>{err}</p>
+                  ))}
                 </div>
               )}
               

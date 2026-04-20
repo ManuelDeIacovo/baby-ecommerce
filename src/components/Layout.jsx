@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { products } from "../data/products";
 
 const Layout = ({ children, currentPage, onCategoryChange }) => {
@@ -39,6 +40,13 @@ const Layout = ({ children, currentPage, onCategoryChange }) => {
               <span className="cat-name">{cat === "All" ? "Tutti i prodotti" : cat}</span>
             </button>
           ))}
+        </div>
+        
+        <div className="sidebar-footer">
+          <Link to="/auth" className="sidebar-auth-btn">
+            <span className="sidebar-auth-icon">👤</span>
+            <span>Accedi / Registrati</span>
+          </Link>
         </div>
       </aside>
 
