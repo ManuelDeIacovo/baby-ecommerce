@@ -972,8 +972,11 @@ body.zoom-open {
 }
 
 .empty-cart-icon {
-  font-size: 4rem;
+  width: 80px;
+  height: 80px;
   margin-bottom: 1rem;
+  color: var(--text);
+  opacity: 0.5;
 }
 
 .cart-empty h2 {
