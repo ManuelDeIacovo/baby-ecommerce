@@ -1,15 +1,35 @@
 import { useState } from "react";
-import { products } from "../data/products";
+// Removed static product import; products will be fetched from the backend API.
 import { useCart } from "../hooks/useCart";
 import ImageZoom from "../components/ImageZoom";
 
 const Shop = ({ category = "All" }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch products:', err);
+        setLoading(false);
+      });
+  }, []);
+
   const { addToCart, cart } = useCart();
   const [selectedColors, setSelectedColors] = useState({});
   const [selectedAmigurumi, setSelectedAmigurumi] = useState({});
   const [customNames, setCustomNames] = useState({});
   const [openSections, setOpenSections] = useState({});
   const [errors, setErrors] = useState({});
+
+  if (loading) {
+    return <div className="shop"><p>Loading products...</p></div>;
+  }
 
   const filteredProducts =
     category === "All"

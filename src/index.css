@@ -1,15 +1,16 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  /* Relaxing palette */
+  --text: #4a3f35;               /* deep cream */
+  --text-h: #1e120b;             /* dark accent for headings */
+  --bg: #fdf5e6;                 /* soft cream background */
+  --border: #e1c8b7;             /* gentle pinkish border */
+  --code-bg: #fff8f0;            /* warm code block bg */
+  --accent: #ff8fa3;             /* soothing pink */
+  --accent-bg: rgba(255, 143, 163, 0.1);   /* pink transparent */
+  --accent-border: rgba(255, 143, 163, 0.5);
+  --social-bg: rgba(173, 216, 230, 0.3);   /* light sky blue */
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.08) 0 8px 12px -2px, rgba(0, 0, 0, 0.04) 0 3px 5px -1px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;

@@ -4,7 +4,7 @@ export const products = [
     name: "Body in Cotone Morbido",
     price: 19.99,
     category: "Abbigliamento",
-    image: "/src/assets/images/body_ricamato.png",
+    image: "https://picsum.photos/seed/p1/400/300",
     description: "Body in cotone 100% organico per neonati con nome ricamato",
     colors: [
       { name: "Rosa", value: "#FFB6C1" },
@@ -17,7 +17,7 @@ export const products = [
     name: "Copertina per Bebè",
     price: 29.99,
     category: "Camera",
-    image: "/src/assets/images/coperta_ricamata.png",
+    image: "https://picsum.photos/seed/p2/400/300",
     description: "Coperta in seta personalizzata con nome ricamato",
     colors: [
       { name: "Rosa", value: "#FFB6C1" },
@@ -30,7 +30,7 @@ export const products = [
     name: "Tricotin Personalizzato",
     price: 49.99,
     category: "Tricotin",
-    image: "/src/assets/images/tricotin_nome.jpg",
+    image: "https://picsum.photos/seed/p3/400/300",
     description: "Tricotin personalizzato a mano su misura",
     customizable: true,
     colors: [
@@ -44,7 +44,7 @@ export const products = [
     name: "Lenzuolo Ricamato",
     price: 22.99,
     category: "Camera",
-    image: "/src/assets/images/lenzuolo_ricamato.png",
+    image: "https://picsum.photos/seed/p4/400/300",
     description: "Lenzuolo ricamato personalizzabile",
     colors: [
       { name: "Rosa", value: "#FFB6C1" },
@@ -57,7 +57,7 @@ export const products = [
     name: "Coniglio",
     price: 19.99,
     category: "Amigurumi",
-    image: "/src/assets/images/coniglio.jpg",
+    image: "https://picsum.photos/seed/p5/400/300",
     description: "Coniglio in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -65,7 +65,7 @@ export const products = [
     name: "Elefante",
     price: 19.99,
     category: "Amigurumi",
-    image: "/src/assets/images/elefante.png",
+    image: "https://picsum.photos/seed/p6/400/300",
     description: "Elefante in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -73,7 +73,7 @@ export const products = [
     name: "Pulcino",
     price: 19.99,
     category: "Amigurumi",
-    image: "/src/assets/images/pulcino.jpg",
+    image: "https://picsum.photos/seed/p7/400/300",
     description: "Pulcino in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -81,7 +81,7 @@ export const products = [
     name: "Gatto",
     price: 19.99,
     category: "Amigurumi",
-    image: "/src/assets/images/gatto.jpg",
+    image: "https://picsum.photos/seed/p8/400/300",
     description: "Gatto in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -89,7 +89,7 @@ export const products = [
     name: "Cane",
     price: 19.99,
     category: "Amigurumi",
-    image: "/src/assets/images/cane.png",
+    image: "https://picsum.photos/seed/p9/400/300",
     description: "Cane in amigurumi fatto a mano, perfetto per coccole e decorazione"
   }
 ];
