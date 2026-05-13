@@ -1,18 +1,30 @@
-# React + Vite
+# Baby Ecommerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive e-commerce web application for baby products, featuring customizable items, a shopping cart, and a responsive layout.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Frontend**: React, Vite, React Router
+- **Backend**: Node.js, Express
+- **Styling**: Vanilla CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- **Responsive Design**: Mobile-friendly navigation and layout.
+- **Product Customization**: Select colors, amigurumi types, and input custom names to embroider.
+- **Cart Management**: Add, remove, update quantities, and view cart total.
+- **Backend API**: An Express server handles product data requests.
 
-## React Compiler
+## Getting Started
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Note: This will impact Vite dev & build performances.
+2. **Run the development servers:**
+   ```bash
+   npm run dev
+   ```
+   This will start both the frontend Vite server and the backend Express server concurrently.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. **Open the app:**
+   Navigate to `http://localhost:5173` in your browser. The backend runs on port `5000` and API requests are automatically proxied.

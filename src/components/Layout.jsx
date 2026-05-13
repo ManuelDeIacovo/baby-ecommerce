@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { products } from "../data/products";
 
 const Layout = ({ children, currentPage, onCategoryChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
   const categories = ["All", ...new Set(products.map((p) => p.category))];
 
   const handleCategoryClick = (cat) => {
@@ -25,9 +26,19 @@ const Layout = ({ children, currentPage, onCategoryChange }) => {
       {/* Sidebar */}
       <aside className={`sidebar ${isMenuOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
-          <h2>Categorie</h2>
+          <h2>Menu</h2>
         </div>
         <div className="category-list">
+          <Link 
+            to="/" 
+            className={`category-btn ${location.pathname === '/' ? "active" : ""}`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <span className="cat-icon">🏠</span>
+            <span className="cat-name">Home</span>
+          </Link>
+          <div style={{ height: '1px', background: 'var(--border)', margin: '0.25rem 0' }}></div>
+          <div style={{ padding: '0 0.5rem', fontSize: '0.8rem', color: 'var(--text)', opacity: 0.7, fontWeight: 600 }}>CATEGORIE</div>
           {categories.map((cat) => (
             <button
               key={cat}
