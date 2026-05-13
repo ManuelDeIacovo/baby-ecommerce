@@ -284,6 +284,23 @@ code {
   background: var(--primary-hover);
 }
 
+@media (max-width: 768px) {
+  .hero {
+    padding: 2.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .shop, .home {
+    padding: 1rem;
+  }
+}
+
 /* Layout */
 .layout {
   display: flex;
@@ -541,8 +558,14 @@ code {
 
 @media (max-width: 600px) {
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .product-card {
+    min-height: auto;
+  }
+  .product-card img {
+    height: 250px;
   }
 }
 
