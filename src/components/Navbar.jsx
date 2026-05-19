@@ -17,13 +17,13 @@ const Navbar = () => {
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/shop" className="nav-link">Negozio</Link>
           <Link to="/auth" className="auth-link">
-            <span className="auth-icon">{isAuthenticated ? "😊" : "👤"}</span>
+            <span className="auth-icon" aria-hidden="true">{isAuthenticated ? "😊" : "👤"}</span>
             <span className="auth-text">
               {isAuthenticated ? user?.name?.split(" ")[0] : "Accedi"}
             </span>
           </Link>
-          <Link to="/cart" className="cart-link">
-            <svg className="cart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <Link to="/cart" className="cart-link" aria-label="Carrello">
+            <svg className="cart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="9" cy="21" r="1"></circle>
               <circle cx="20" cy="21" r="1"></circle>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>

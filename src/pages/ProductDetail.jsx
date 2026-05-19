@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import { useToast } from "../hooks/useToast";
+import { useSEO } from "../hooks/useSEO";
 import ProductSkeleton from "../components/ProductSkeleton";
 
 const ProductDetail = () => {
@@ -12,6 +13,11 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useSEO({
+    title: product ? product.name : "Prodotto",
+    description: product ? product.description : "Dettagli prodotto."
+  });
 
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedAmigurumi, setSelectedAmigurumi] = useState(null);

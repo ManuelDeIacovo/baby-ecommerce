@@ -2,8 +2,14 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ImageZoom from "../components/ImageZoom";
 import ProductSkeleton from "../components/ProductSkeleton";
+import { useSEO } from "../hooks/useSEO";
 
 const Home = () => {
+  useSEO({
+    title: "Home",
+    description: "Creazioni uniche artigianali per il tuo bambino. Fatto a mano con materiali naturali."
+  });
+
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

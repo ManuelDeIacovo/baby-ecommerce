@@ -5,6 +5,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { ToastProvider } from "./context/ToastContext";
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -23,7 +24,7 @@ function AppContent() {
   return (
     <>
       <Navbar />
-      <main className="main-content">
+      <main className="main-content" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Layout 
           currentPage={selectedCategory} 
           onCategoryChange={handleCategoryChange}
@@ -36,6 +37,7 @@ function AppContent() {
             <Route path="/auth" element={<Auth />} />
           </Routes>
         </Layout>
+        <Footer />
       </main>
     </>
   );

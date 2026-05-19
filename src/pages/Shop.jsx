@@ -4,8 +4,14 @@ import { useCart } from "../hooks/useCart";
 import { useToast } from "../hooks/useToast";
 import ImageZoom from "../components/ImageZoom";
 import ProductSkeleton from "../components/ProductSkeleton";
+import { useSEO } from "../hooks/useSEO";
 
 const Shop = ({ category = "All" }) => {
+  useSEO({
+    title: category === "All" ? "Negozio" : `Categoria: ${category}`,
+    description: "Esplora i nostri prodotti fatti a mano per bambini."
+  });
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

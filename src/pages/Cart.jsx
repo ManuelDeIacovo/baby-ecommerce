@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
+import { useSEO } from "../hooks/useSEO";
 
 const Cart = () => {
+  useSEO({
+    title: "Carrello",
+    description: "Visualizza e gestisci i prodotti nel tuo carrello."
+  });
+
   const { cart, removeFromCart, updateQuantity, cartTotal, clearCart } = useCart();
 
   if (cart.length === 0) {

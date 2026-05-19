@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { useSEO } from "../hooks/useSEO";
 
 const Auth = () => {
+  useSEO({
+    title: "Accedi / Registrati",
+    description: "Accedi al tuo account o registrati per effettuare i tuoi acquisti."
+  });
+
   const { isAuthenticated, user, login, register, logout } = useAuth();
   const navigate = useNavigate();
 

@@ -18,8 +18,10 @@ const Layout = ({ children, currentPage, onCategoryChange }) => {
       <button 
         className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle menu"
+        aria-expanded={isMenuOpen}
       >
-        <span className="menu-icon">☰</span>
+        <span className="menu-icon" aria-hidden="true">☰</span>
         <span className="menu-text">Categorie</span>
       </button>
 
