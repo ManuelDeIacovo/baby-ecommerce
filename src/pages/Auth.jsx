@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Auth = () => {
+  const { isAuthenticated, user, login, register, logout } = useAuth();
+  const navigate = useNavigate();
+
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
@@ -9,6 +14,24 @@ const Auth = () => {
     confirmPassword: ""
   });
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  // If already logged in, show account info
+  if (isAuthenticated && user) {
+    return (
+      <div className="auth-page">
+        <div className="auth-container">
+          <div className="auth-header">
+            <h1>Ciao, {user.name}! 👋</h1>
+            <p>{user.email}</p>
+          </div>
+          <button onClick={() => { logout(); }} className="auth-submit" style={{ background: '#ef4444' }}>
+            Esci
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const handleChange = (e) => {
     setFormData({
@@ -18,33 +41,43 @@ const Auth = () => {
     setError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (isLogin) {
-      // Login validation
-      if (!formData.email || !formData.password) {
-        setError("Inserisci email e password");
-        return;
+    setError("");
+    setSubmitting(true);
+
+    try {
+      if (isLogin) {
+        if (!formData.email || !formData.password) {
+          setError("Inserisci email e password");
+          setSubmitting(false);
+          return;
+        }
+        await login(formData.email, formData.password);
+      } else {
+        if (!formData.name || !formData.email || !formData.password) {
+          setError("Compila tutti i campi");
+          setSubmitting(false);
+          return;
+        }
+        if (formData.password !== formData.confirmPassword) {
+          setError("Le password non coincidono");
+          setSubmitting(false);
+          return;
+        }
+        if (formData.password.length < 6) {
+          setError("La password deve essere di almeno 6 caratteri");
+          setSubmitting(false);
+          return;
+        }
+        await register(formData.name, formData.email, formData.password);
       }
-      // Simulate login
-      alert("Login effettuato con successo!");
-    } else {
-      // Register validation
-      if (!formData.name || !formData.email || !formData.password) {
-        setError("Compila tutti i campi");
-        return;
-      }
-      if (formData.password !== formData.confirmPassword) {
-        setError("Le password non coincidono");
-        return;
-      }
-      if (formData.password.length < 6) {
-        setError("La password deve essere di almeno 6 caratteri");
-        return;
-      }
-      // Simulate registration
-      alert("Registrazione effettuata con successo!");
+      // On success, redirect to shop
+      navigate("/shop");
+    } catch (err) {
+      setError(err.message || "Si è verificato un errore");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -111,8 +144,12 @@ const Auth = () => {
 
           {error && <div className="auth-error">{error}</div>}
 
-          <button type="submit" className="auth-submit">
-            {isLogin ? "Accedi" : "Registrati"}
+          <button type="submit" className="auth-submit" disabled={submitting}>
+            {submitting
+              ? "Attendere..."
+              : isLogin
+              ? "Accedi"
+              : "Registrati"}
           </button>
         </form>
 
