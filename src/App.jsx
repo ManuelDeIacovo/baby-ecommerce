@@ -2,12 +2,14 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
+import { ToastProvider } from "./context/ToastContext";
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Auth from "./pages/Auth";
+import ProductDetail from "./pages/ProductDetail";
 
 function AppContent() {
   const navigate = useNavigate();
@@ -29,6 +31,7 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop category={selectedCategory} />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/auth" element={<Auth />} />
           </Routes>
@@ -42,9 +45,11 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <Router>
-          <AppContent />
-        </Router>
+        <ToastProvider>
+          <Router>
+            <AppContent />
+          </Router>
+        </ToastProvider>
       </CartProvider>
     </AuthProvider>
   );

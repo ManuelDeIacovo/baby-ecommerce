@@ -1,26 +1,40 @@
 import { useState, useEffect } from "react";
-// Removed static product import; products will be fetched from the backend API.
+import { Link } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
+import { useToast } from "../hooks/useToast";
 import ImageZoom from "../components/ImageZoom";
+import ProductSkeleton from "../components/ProductSkeleton";
 
 const Shop = ({ category = "All" }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const fetchProducts = () => {
+    setLoading(true);
+    setError(null);
     fetch('/api/products')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Errore nel caricamento");
+        return res.json();
+      })
       .then((data) => {
         setProducts(data);
         setLoading(false);
       })
       .catch((err) => {
         console.error('Failed to fetch products:', err);
+        setError(err.message);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchProducts();
   }, []);
 
   const { addToCart, cart } = useCart();
+  const { addToast } = useToast();
   const [selectedColors, setSelectedColors] = useState({});
   const [selectedAmigurumi, setSelectedAmigurumi] = useState({});
   const [customNames, setCustomNames] = useState({});
@@ -28,7 +42,25 @@ const Shop = ({ category = "All" }) => {
   const [errors, setErrors] = useState({});
 
   if (loading) {
-    return <div className="shop"><p>Loading products...</p></div>;
+    return (
+      <div className="shop">
+        <h1>Negozio</h1>
+        <ProductSkeleton count={6} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="shop">
+        <div className="error-state">
+          <span className="error-icon">😕</span>
+          <h2>Impossibile caricare i prodotti</h2>
+          <p>{error}</p>
+          <button className="retry-btn" onClick={fetchProducts}>Riprova</button>
+        </div>
+      </div>
+    );
   }
 
   const filteredProducts =
@@ -67,22 +99,18 @@ const Shop = ({ category = "All" }) => {
   };
 
   const handleAddToCart = (product) => {
-    // Clear previous errors for this product
     setErrors((prev) => ({ ...prev, [product.id]: null }));
     
     const newErrors = [];
     
-    // Validate color selection
     if (product.colors && !selectedColors[product.id]) {
       newErrors.push("Seleziona un colore");
     }
     
-    // Validate amigurumi selection for customizable products
     if (product.customizable && !selectedAmigurumi[product.id]) {
       newErrors.push("Seleziona un amigurumi");
     }
     
-    // Validate custom name for products 1, 2, 5 and customizable products
     if ((product.id === 1 || product.id === 2 || product.id === 5 || product.customizable) && 
         !customNames[product.id]?.trim()) {
       newErrors.push("Inserisci un nome");
@@ -101,7 +129,6 @@ const Shop = ({ category = "All" }) => {
     if (product.customizable) {
       customization.selectedAmigurumi = selectedAmigurumi[product.id];
     }
-    // Add name for products 1, 2, 5 and product 4
     if (product.id === 1 || product.id === 2 || product.id === 5 || product.customizable) {
       customization.customName = customNames[product.id];
     }
@@ -110,6 +137,8 @@ const Shop = ({ category = "All" }) => {
       ...product,
       ...customization
     });
+
+    addToast(`${product.name} aggiunto al carrello!`);
   };
 
   return (
@@ -119,13 +148,17 @@ const Shop = ({ category = "All" }) => {
         <div className="product-grid">
         {filteredProducts.map((product) => (
           <div key={product.id} className={`product-card ${product.id === 4 ? 'product-id-4' : ''}`}>
-            <ImageZoom 
-              src={product.image} 
-              alt={product.name}
-            />
+            <Link to={`/product/${product.id}`} className="product-card-link">
+              <ImageZoom 
+                src={product.image} 
+                alt={product.name}
+              />
+            </Link>
             <div className="product-info">
               <span className="category">{product.category}</span>
-              <h3>{product.name}</h3>
+              <Link to={`/product/${product.id}`} className="product-title-link">
+                <h3>{product.name}</h3>
+              </Link>
               <p className="description">{product.description}</p>
               
               {/* Color selector - collapsible for products 1, 2, 5 */}

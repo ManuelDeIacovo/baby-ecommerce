@@ -7,8 +7,10 @@
    - layout.css    → Page structure, sidebar, menu
    - hero.css      → Hero / CTA section
    - products.css  → Grid, cards, options, modal
+   - detail.css    → Product detail page
    - cart.css      → Cart page
    - auth.css      → Login / Register page
+   - toast.css     → Toast notifications
    ═══════════════════════════════════════════ */
 
 @import './styles/base.css';
@@ -16,5 +18,7 @@
 @import './styles/layout.css';
 @import './styles/hero.css';
 @import './styles/products.css';
+@import './styles/detail.css';
 @import './styles/cart.css';
 @import './styles/auth.css';
+@import './styles/toast.css';

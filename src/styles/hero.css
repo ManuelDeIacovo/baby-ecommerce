@@ -1,29 +1,141 @@
 /* ═══════════════════════════════════════════
-   Hero Section
+   Hero Section — Animated
    ═══════════════════════════════════════════ */
 
 .hero {
-  background: linear-gradient(135deg, var(--accent-bg) 0%, var(--bg-sec) 100%);
+  background: linear-gradient(135deg, var(--accent-bg) 0%, var(--bg-sec) 50%, rgba(163, 201, 192, 0.1) 100%);
   padding: 5rem 2rem;
   margin-bottom: 3rem;
   border-radius: var(--radius);
   text-align: center;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-content h1 {
+.hero-animated {
+  padding: 4rem 2rem 3.5rem;
+}
+
+/* Floating decorations */
+.hero-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-float {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.hero-float-1 { top: 12%; left: 8%; animation-delay: 0s; font-size: 2.5rem; }
+.hero-float-2 { top: 20%; right: 10%; animation-delay: 1.2s; font-size: 2rem; }
+.hero-float-3 { bottom: 18%; left: 15%; animation-delay: 2.4s; font-size: 1.8rem; }
+.hero-float-4 { bottom: 25%; right: 12%; animation-delay: 0.8s; font-size: 2.2rem; }
+.hero-float-5 { top: 40%; left: 50%; animation-delay: 1.8s; font-size: 1.5rem; }
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  animation: badgeFadeIn 0.8s ease;
+}
+
+@keyframes badgeFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Title */
+.hero-title-animated {
   font-size: 3.5rem;
   margin-bottom: 1rem;
   color: var(--text-h);
   font-weight: 700;
+  line-height: 1.15;
+  animation: titleFadeIn 0.8s ease 0.2s both;
 }
 
-.hero-content p {
-  font-size: 1.25rem;
+.hero-highlight {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes titleFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
   color: var(--text);
   margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  animation: titleFadeIn 0.8s ease 0.4s both;
 }
 
+/* Actions */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  animation: titleFadeIn 0.8s ease 0.6s both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.hero-stat strong {
+  font-size: 1.5rem;
+  color: var(--text-h);
+  font-weight: 700;
+}
+
+.hero-stat span {
+  font-size: 0.8rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* CTA Button */
+.hero-content .cta-button,
 .cta-button {
   display: inline-block;
   background: var(--primary);
@@ -43,17 +155,39 @@
   background: var(--primary-hover);
 }
 
+/* Product card link */
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-title-link:hover h3 {
+  color: var(--primary);
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 2.5rem 1rem;
     margin-bottom: 1.5rem;
   }
-  .hero-content h1 {
+  .hero-animated {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+  .hero-title-animated {
     font-size: 2.2rem;
   }
-  .hero-content p {
+  .hero-subtitle {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+  }
+  .hero-float {
+    font-size: 1.5rem !important;
+    opacity: 0.2;
   }
   .shop, .home {
     padding: 1rem;
