@@ -9,9 +9,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="logo">
-          <span className="logo-icon">✨</span>
-          <span className="logo-text">Baby Shop</span>
+        <Link to="/" className="logo" aria-label="Nido di Cotone Home">
+          <span className="logo-icon" aria-hidden="true">✨</span>
+          <span className="logo-text">Nido di Cotone</span>
         </Link>
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>

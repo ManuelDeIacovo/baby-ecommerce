@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-brand">
           <Link to="/" className="footer-logo">
             <span className="footer-logo-icon">✨</span>
-            <span className="footer-logo-text">Baby Shop</span>
+            <span className="footer-logo-text">Nido di Cotone</span>
           </Link>
           <p className="footer-description">
             Creazioni artigianali uniche, realizzate a mano con materiali naturali 
@@ -54,7 +54,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Baby Shop. Tutti i diritti riservati.</p>
+        <p>&copy; {new Date().getFullYear()} Nido di Cotone. Tutti i diritti riservati.</p>
         <div className="payment-methods">
           <span title="Visa">💳</span>
           <span title="Mastercard">💳</span>
