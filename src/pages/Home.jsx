@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ImageZoom from "../components/ImageZoom";
 import ProductSkeleton from "../components/ProductSkeleton";
+import Feedback from "../components/Feedback";
 import { useSEO } from "../hooks/useSEO";
 
 const Home = () => {
@@ -103,6 +104,9 @@ const Home = () => {
         )}
         <Link to="/shop" className="view-all">Vedi Tutti i Prodotti →</Link>
       </section>
+
+      {/* User Feedback */}
+      <Feedback />
     </div>
   );
 };

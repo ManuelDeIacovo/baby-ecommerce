@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "userId": "user_a",
+    "userName": "Giulia",
+    "rating": 5,
+    "text": "Ho acquistato la copertina personalizzata ed è meravigliosa! Tessuto morbidissimo e ricamo perfetto.",
+    "imageUrl": "/images/baby_blanket.png",
+    "date": "2026-05-15T10:30:00.000Z"
+  },
+  {
+    "id": "2",
+    "userId": "user_b",
+    "userName": "Marco",
+    "rating": 5,
+    "text": "Il tricotin personalizzato per mio figlio è arrivato in tempi record ed è bellissimo. Grazie Nido di Cotone!",
+    "imageUrl": "/images/tricotin.png",
+    "date": "2026-05-20T14:45:00.000Z"
+  },
+  {
+    "id": "3",
+    "userId": "user_c",
+    "userName": "Elena",
+    "rating": 4,
+    "text": "Gli amigurumi sono curatissimi nei dettagli. Il gattino è diventato il compagno di nanna preferito di mia figlia.",
+    "imageUrl": "/images/amigurumi_cat.svg",
+    "date": "2026-05-25T09:15:00.000Z"
+  }
+]
