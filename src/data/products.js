@@ -4,7 +4,7 @@ export const products = [
     name: "Body in Cotone Morbido",
     price: 19.99,
     category: "Abbigliamento",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Body+in+Cotone&font=montserrat",
+    image: "/images/baby_bodysuit.png",
     description: "Body in cotone 100% organico per neonati con nome ricamato",
     colors: [
       { name: "Rosa", value: "#FFB6C1" },
@@ -17,7 +17,7 @@ export const products = [
     name: "Copertina per Bebè",
     price: 29.99,
     category: "Camera",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Copertina+Bebe&font=montserrat",
+    image: "/images/baby_blanket.png",
     description: "Coperta in seta personalizzata con nome ricamato",
     colors: [
       { name: "Rosa", value: "#FFB6C1" },
@@ -30,7 +30,7 @@ export const products = [
     name: "Tricotin Personalizzato",
     price: 49.99,
     category: "Tricotin",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Tricotin+Personalizzato&font=montserrat",
+    image: "/images/tricotin.png",
     description: "Tricotin personalizzato a mano su misura",
     customizable: true,
     colors: [
@@ -44,7 +44,7 @@ export const products = [
     name: "Lenzuolo Ricamato",
     price: 22.99,
     category: "Camera",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Lenzuolo+Ricamato&font=montserrat",
+    image: "/images/bedsheet.png",
     description: "Lenzuolo ricamato personalizzabile",
     colors: [
       { name: "Rosa", value: "#FFB6C1" },
@@ -57,7 +57,7 @@ export const products = [
     name: "Coniglio",
     price: 19.99,
     category: "Amigurumi",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Amigurumi+Coniglio&font=montserrat",
+    image: "/images/amigurumi_rabbit.png",
     description: "Coniglio in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -65,7 +65,7 @@ export const products = [
     name: "Elefante",
     price: 19.99,
     category: "Amigurumi",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Amigurumi+Elefante&font=montserrat",
+    image: "/images/amigurumi_elephant.png",
     description: "Elefante in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -73,7 +73,7 @@ export const products = [
     name: "Pulcino",
     price: 19.99,
     category: "Amigurumi",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Amigurumi+Pulcino&font=montserrat",
+    image: "/images/amigurumi_chick.png",
     description: "Pulcino in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -81,7 +81,7 @@ export const products = [
     name: "Gatto",
     price: 19.99,
     category: "Amigurumi",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Amigurumi+Gatto&font=montserrat",
+    image: "/images/amigurumi_cat.png",
     description: "Gatto in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -89,7 +89,7 @@ export const products = [
     name: "Cane",
     price: 19.99,
     category: "Amigurumi",
-    image: "https://placehold.co/800x800/fcfaf8/a3c9c0?text=Amigurumi+Cane&font=montserrat",
+    image: "/images/amigurumi_dog.png",
     description: "Cane in amigurumi fatto a mano, perfetto per coccole e decorazione"
   }
 ];
