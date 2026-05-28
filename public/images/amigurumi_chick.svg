@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#FFFFF0"/>
+  <g transform="translate(400, 420)">
+    <!-- Body/Face -->
+    <ellipse cx="0" cy="0" rx="160" ry="180" fill="#FFFACD" stroke="#FFD700" stroke-width="8"/>
+    
+    <!-- Hair tuft -->
+    <path d="M-20 -180 Q0 -220 20 -180 Q10 -200 0 -180" fill="none" stroke="#FFD700" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Wings -->
+    <path d="M-150 0 Q-220 40 -140 80 Z" fill="#FFFACD" stroke="#FFD700" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M150 0 Q220 40 140 80 Z" fill="#FFFACD" stroke="#FFD700" stroke-width="8" stroke-linejoin="round"/>
+    
+    <!-- Eyes -->
+    <circle cx="-50" cy="-30" r="15" fill="#4A4A4A"/>
+    <circle cx="50" cy="-30" r="15" fill="#4A4A4A"/>
+    
+    <!-- Beak -->
+    <path d="M-30 10 L30 10 L0 40 Z" fill="#FFA500" stroke="#FF8C00" stroke-width="6" stroke-linejoin="round"/>
+    
+    <!-- Blushes -->
+    <circle cx="-80" cy="10" r="20" fill="#FFC0CB" opacity="0.6"/>
+    <circle cx="80" cy="10" r="20" fill="#FFC0CB" opacity="0.6"/>
+  </g>
+</svg>

@@ -73,7 +73,7 @@ export const products = [
     name: "Pulcino",
     price: 19.99,
     category: "Amigurumi",
-    image: "/images/amigurumi_chick.png",
+    image: "/images/amigurumi_chick.svg",
     description: "Pulcino in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -81,7 +81,7 @@ export const products = [
     name: "Gatto",
     price: 19.99,
     category: "Amigurumi",
-    image: "/images/amigurumi_cat.png",
+    image: "/images/amigurumi_cat.svg",
     description: "Gatto in amigurumi fatto a mano, perfetto per coccole e decorazione"
   },
   {
@@ -89,7 +89,7 @@ export const products = [
     name: "Cane",
     price: 19.99,
     category: "Amigurumi",
-    image: "/images/amigurumi_dog.png",
+    image: "/images/amigurumi_dog.svg",
     description: "Cane in amigurumi fatto a mano, perfetto per coccole e decorazione"
   }
 ];
