@@ -19,13 +19,14 @@ export const AuthProvider = ({ children }) => {
 
   // On mount, validate the saved token
   useEffect(() => {
-    if (!auth.token) {
+    const initialToken = loadAuth().token;
+    if (!initialToken) {
       setLoading(false);
       return;
     }
 
     fetch("/api/auth/me", {
-      headers: { Authorization: `Bearer ${auth.token}` },
+      headers: { Authorization: `Bearer ${initialToken}` },
     })
       .then((res) => {
         if (!res.ok) throw new Error("Invalid token");

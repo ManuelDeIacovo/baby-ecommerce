@@ -57,6 +57,7 @@ router.get('/', async (req, res) => {
     const reviews = await getReviews();
     res.json(reviews);
   } catch (error) {
+    console.error('Error fetching reviews:', error);
     res.status(500).json({ error: 'Errore nel recuperare le recensioni' });
   }
 });
@@ -86,9 +87,9 @@ router.post('/', upload.single('photo'), async (req, res) => {
     await fs.writeJson(REVIEWS_FILE, reviews, { spaces: 2 });
 
     res.status(201).json(newReview);
-  } catch (error) {
-    console.error('Error saving review:', error);
-    res.status(500).json({ error: error.message || 'Errore nel salvare la recensione' });
+  } catch (err) {
+    console.error('Error saving review:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 

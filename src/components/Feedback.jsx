@@ -6,10 +6,6 @@ const Feedback = () => {
   const [reviews, setReviews] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
   const fetchReviews = async () => {
     try {
       const res = await fetch('http://localhost:5000/api/reviews');
@@ -21,6 +17,10 @@ const Feedback = () => {
       console.error('Errore nel recupero delle recensioni:', error);
     }
   };
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
 
   const handleReviewAdded = (newReview) => {
     setReviews((prev) => [...prev, newReview]);
