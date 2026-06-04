@@ -91,5 +91,29 @@ export const products = [
     category: "Amigurumi",
     image: "/images/amigurumi_dog.svg",
     description: "Cane in amigurumi fatto a mano, perfetto per coccole e decorazione"
+  },
+  {
+    id: 10,
+    name: "Orso",
+    price: 19.99,
+    category: "Amigurumi",
+    image: "/images/amigurumi_bear.svg",
+    description: "Orso in amigurumi fatto a mano, perfetto per coccole e decorazione"
+  },
+  {
+    id: 11,
+    name: "Mucca",
+    price: 19.99,
+    category: "Amigurumi",
+    image: "/images/amigurumi_cow.svg",
+    description: "Mucca in amigurumi fatta a mano, perfetta per coccole e decorazione"
+  },
+  {
+    id: 12,
+    name: "Pecorella",
+    price: 19.99,
+    category: "Amigurumi",
+    image: "/images/amigurumi_sheep.svg",
+    description: "Pecorella in amigurumi fatta a mano, perfetta per coccole e decorazione"
   }
 ];
